@@ -1,0 +1,9 @@
+html{
+    text-align: center;
+}
+table{
+    text-align: center;
+    border:5px #2f5881 solid;
+    margin-left:auto; /*表格置中*/ 
+    margin-right:auto;
+}
