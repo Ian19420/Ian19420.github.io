@@ -1,9 +1,8 @@
 var Btn = null;
 function a()
 {
-    Btn = document.querySelector('input[type = "radio"]:checked');
-    console.log(Btn);
     var num = true;
+    Btn = document.querySelector('input[type = "radio"]:checked');
     if (Btn != null)
     {
         Btn.onclick = function() {
@@ -24,8 +23,8 @@ setInterval(a, 10);
 var Btnsubmit = document.querySelector("[data-action = 'submit']");
 Btnsubmit.onclick = function (){
     var sheet_url = "https://script.google.com/macros/s/AKfycbxNhikis3sVIDPpniXUaWRycPCMT1Apcnd6rVMj6zLh4caMvmfUtYMj0EyvNCZ7rGQc/exec";
-    var lunch = Btn.name;
-    var price = Btn.value;
+    var lunch = Btn.value.split(" ", 2)[0];
+    var price = Btn.value.split(" ", 2)[1];
     var myselect = document.querySelector("[name = 'number']");
     var index = myselect.selectedIndex;
     var num = myselect.options[index].text;
@@ -39,8 +38,17 @@ Btnsubmit.onclick = function (){
         },
         dataType: "JSON",
         success: function(response) {
-        console.log(response);
-        if(response == "成功") alert("成功");
+            console.log(response);
+        if(response == "success")
+        {
+            alert("success");
+            clear();
+        }
         },
+        //error: function(response)
     });
+}
+function clear()
+{
+    Btn.checked = false;
 }
