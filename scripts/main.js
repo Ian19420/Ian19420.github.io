@@ -1,5 +1,5 @@
 var Btn = null;
-function a()
+function cancel()
 {
     var num = true;
     Btn = document.querySelector('input[type = "radio"]:checked');
@@ -18,10 +18,27 @@ function a()
         };
     }
 }
-setInterval(a, 10);
+function get_time()
+{
+    var date = new Date();
+    var year = date.getFullYear();
+    var time = [];
+    time[0] = date.getMonth() + 1;
+    time[1] = date.getDate();
+    time[2] = date.getHours();
+    time[3] = date.getMinutes();
+    time[4] = date.getSeconds();
+    for (var x = 0; x < 5; x++)
+    {
+        if (String(time[x]).length < 2) time[x] = "0" + time[x];
+    }
+    document.getElementById("current_date").innerHTML = year + "/" + time[0] + "/" + time[1] + " " + time[2] + ":" + time[3] + ":" + time[4];
+}
+setInterval(get_time, 10);
 
 var Btnsubmit = document.querySelector("[data-action = 'submit']");
 Btnsubmit.onclick = function (){
+    clear();
     var sheet_url = "https://script.google.com/macros/s/AKfycbyHRGezoGVs58M4_lXWKMJTzvhiBRdqfCpn6WdK5lWC14je2P4MuGqhqNVQ0iXx344p/exec";
     var lunch = Btn.value.split(" ", 2)[0];
     var price = Btn.value.split(" ", 2)[1];
@@ -42,12 +59,11 @@ Btnsubmit.onclick = function (){
         if(response == "success")
         {
             alert("success");
-            clear();
         }
         },
         error: function(response){
             console.log(response);
-            alert("error");
+            alert("收到 但未response");
         }
     });
 }
