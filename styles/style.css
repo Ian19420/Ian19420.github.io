@@ -1,9 +1,28 @@
-html{
+html
+{
     text-align: center;
+    font-size: 1cm;
+    
 }
-table{
+table
+{
     text-align: center;
     border:5px #2f5881 solid;
     margin-left:auto; /*表格置中*/ 
     margin-right:auto;
+}
+input[name = "options"]
+{
+    width: 25px;
+    height: 25px;
+}
+select[name = "number"]
+{
+    width: 75px;
+    height: 50px;
+}
+input[data-action = "submit"]
+{
+    width: 75px;
+    height: 50px;
 }
