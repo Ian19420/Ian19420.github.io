@@ -18,6 +18,7 @@ function cancel()
         };
     }
 }
+var Btnsubmit = document.querySelector("[data-action = 'submit']");
 function get_time()
 {
     var date = new Date();
@@ -28,6 +29,13 @@ function get_time()
     time[2] = date.getHours();
     time[3] = date.getMinutes();
     time[4] = date.getSeconds();
+    if (Math.abs(time[2]-13) < 5)
+    {
+        Btnsubmit.disabled = true;
+        var B = document.querySelector("[name = 'time limit']");
+        B.style.display = "";
+
+    }
     for (var x = 0; x < 5; x++)
     {
         if (String(time[x]).length < 2) time[x] = "0" + time[x];
@@ -36,36 +44,39 @@ function get_time()
 }
 setInterval(get_time, 10);
 
-var Btnsubmit = document.querySelector("[data-action = 'submit']");
 Btnsubmit.onclick = function (){
+    if (Btn == null)
+    {
+        alert("請選擇你的午餐!");
+        return 0;
+    }
     clear();
-    var sheet_url = "https://script.google.com/macros/s/AKfycbyHRGezoGVs58M4_lXWKMJTzvhiBRdqfCpn6WdK5lWC14je2P4MuGqhqNVQ0iXx344p/exec";
     var lunch = Btn.value.split(" ", 2)[0];
     var price = Btn.value.split(" ", 2)[1];
     var myselect = document.querySelector("[name = 'number']");
     var index = myselect.selectedIndex;
     var num = myselect.options[index].text;
+    var sheet_url = "https://script.google.com/macros/s/AKfycbyHRGezoGVs58M4_lXWKMJTzvhiBRdqfCpn6WdK5lWC14je2P4MuGqhqNVQ0iXx344p/exec";
     $.ajax({
         type: "get",
         url: sheet_url,
         data: {
-        "number": num, /* 屬性名稱需與 Google Sheet 相同 */
+        "number": num,
         "lunch": lunch,
         "price": price, 
         },
         dataType: "JSON",
-        success: function(response) {
-        console.log(response);
+        success: function(response){
         if(response == "success")
         {
             alert("success");
         }
         },
         error: function(response){
-            console.log(response);
             alert("收到 但未response");
         }
     });
+    cancel();
 }
 function clear()
 {
