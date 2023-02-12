@@ -73,7 +73,7 @@ Btnsubmit.onclick = function (){
         }
         },
         error: function(response){
-            alert("收到 但未response");
+            alert("收到");
         }
     });
     cancel();
