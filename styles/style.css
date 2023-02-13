@@ -1,11 +1,12 @@
 html
 {
     text-align: center;
-    font-size: 1cm;
+    font-size: 2cm;
     
 }
 table
 {
+    font-size: 1cm;
     text-align: center;
     border:5px #2f5881 solid;
     margin-left:auto; /*表格置中*/ 
@@ -13,18 +14,18 @@ table
 }
 input[name = "options"]
 {
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
 }
 select[name = "number"]
 {
-    width: 100px;
-    height: 75px;
+    width: 150px;
+    height: 100px;
     font-size: 50px;
 }
 input[data-action = "submit"]
 {
-    width: 125px;
-    height: 75px;
+    width: 150px;
+    height: 100px;
     font-size: 50px;
 }
