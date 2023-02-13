@@ -18,11 +18,13 @@ input[name = "options"]
 }
 select[name = "number"]
 {
-    width: 75px;
-    height: 50px;
+    width: 100px;
+    height: 75px;
+    font-size: 50px;
 }
 input[data-action = "submit"]
 {
-    width: 75px;
-    height: 50px;
+    width: 125px;
+    height: 75px;
+    font-size: 50px;
 }
