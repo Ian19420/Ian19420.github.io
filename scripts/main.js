@@ -1,4 +1,5 @@
 var Btn = null;
+
 function cancel()
 {
     var num = true;
@@ -55,13 +56,18 @@ Btnsubmit.onclick = function (){
     var price = Btn.value.split(" ", 2)[1];
     var myselect = document.querySelector("[name = 'number']");
     var index = myselect.selectedIndex;
-    var num = myselect.options[index].text;
+    var number = myselect.options[index].text;
+    if (number == 0)
+    {
+        alert("請填你的座號!");
+        return 0;
+    }
     var sheet_url = "https://script.google.com/macros/s/AKfycbyHRGezoGVs58M4_lXWKMJTzvhiBRdqfCpn6WdK5lWC14je2P4MuGqhqNVQ0iXx344p/exec";
     $.ajax({
         type: "get",
         url: sheet_url,
         data: {
-        "number": num,
+        "number": number,
         "lunch": lunch,
         "price": price, 
         },
