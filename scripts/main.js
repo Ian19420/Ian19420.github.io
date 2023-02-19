@@ -72,16 +72,16 @@ Btnsubmit.onclick = function (){
         "price": price, 
         },
         dataType: "JSON",
-        success: function(response){
+        /*success: function(response){
         if(response == "success")
         {
             alert("success");
         }
         },
         error: function(response){
-            alert("收到");
-        }
+        }*/
     });
+    alert("收到");
     cancel();
 }
 function clear()
