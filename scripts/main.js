@@ -30,7 +30,7 @@ function get_time()
     time[2] = date.getHours();
     time[3] = date.getMinutes();
     time[4] = date.getSeconds();
-    if (Math.abs(time[2]-13) < 5)
+    if (Math.abs(time[2]-13) < 4)
     {
         Btnsubmit.disabled = true;
         var B = document.querySelector("[name = 'time limit']");
