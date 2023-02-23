@@ -4,6 +4,12 @@ html
     font-size: 2cm;
     
 }
+div[id = "tomorrow"]
+{
+    color: aliceblue;
+    background-color: #2f5881;
+
+}
 table
 {
     font-size: 1cm;
