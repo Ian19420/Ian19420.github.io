@@ -30,7 +30,7 @@ function get_time()
     time[2] = date.getHours();
     time[3] = date.getMinutes();
     time[4] = date.getSeconds();
-    if (Math.abs(time[2]-13) < 4)
+    if (Math.abs(time[2]-17) >= 5)
     {
         Btnsubmit.disabled = true;
         var B = document.querySelector("[name = 'time limit']");
@@ -42,6 +42,8 @@ function get_time()
         if (String(time[x]).length < 2) time[x] = "0" + time[x];
     }
     document.getElementById("current_date").innerHTML = year + "/" + time[0] + "/" + time[1] + " " + time[2] + ":" + time[3] + ":" + time[4];
+    var tomorrow = time[1] + 1;
+    document.getElementById("tomorrow").innerHTML = time[0] + "/" + tomorrow + " 內訂表單"
 }
 setInterval(get_time, 10);
 
