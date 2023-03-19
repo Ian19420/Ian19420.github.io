@@ -37,13 +37,11 @@ function get_time()
         B.style.display = "";
 
     }
-    time[5] = time[1] + 1;
     for (var x = 0; x < 6; x++)
     {
         if (String(time[x]).length < 2) time[x] = "0" + time[x];
     }
     document.getElementById("current_date").innerHTML = year + "/" + time[0] + "/" + time[1] + " " + time[2] + ":" + time[3] + ":" + time[4];
-    document.getElementById("tomorrow").innerHTML = time[0] + "/" + time[5] + " 內訂表單"
 }
 setInterval(get_time, 10);
 
