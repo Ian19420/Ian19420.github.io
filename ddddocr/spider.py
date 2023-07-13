@@ -10,7 +10,7 @@ import pandas as pd
 
 #讀取表單
 scope = ['https://www.googleapis.com/auth/spreadsheets']
-creds = Credentials.from_service_account_file("key.json", scopes=scope)
+creds = Credentials.from_service_account_file("key.json", scopes=scope) #key.json為金鑰 已撤銷
 gs = gspread.authorize(creds)
 sheet = gs.open_by_url("https://docs.google.com/spreadsheets/d/1Jx1C9TCMMcpmAURPfb5x6127JAZ9_yWvkb6glHBerzE/edit#gid=0")
 worksheet = sheet.get_worksheet(0)
@@ -37,8 +37,8 @@ passwords = driver.find_element(By.XPATH, "//*[@id='ContentPlaceHolder1_txtPassw
 code = driver.find_element(By.XPATH, "/html/body/form/div[3]/table/tbody/tr[3]/td/div/table/tbody/tr[3]/td[3]/input")
 button = driver.find_element(By.XPATH, "/html/body/form/div[3]/table/tbody/tr[3]/td/div/table/tbody/tr[5]/td[3]/a[1]")
 code.send_keys(res)
-account.send_keys("學號") #學號為總務股長的學號
-passwords.send_keys("密碼") #密碼為總務股長的密碼
+account.send_keys("學號") #學號為總務股長的學號 已撤銷
+passwords.send_keys("密碼") #密碼為總務股長的密碼 已撤銷
 button.click()
 
 student = driver.find_element(By.XPATH, "/html/body/form/div[3]/table/tbody/tr[2]/td/table/tbody/tr/td[2]/div[1]/ul/li[2]/a")
